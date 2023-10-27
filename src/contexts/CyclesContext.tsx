@@ -89,8 +89,7 @@ export function CyclesContextProvider({
     },
     { cycles: [], activeCycleId: null },
   )
-  // const [cycles, setCycles] = useState<Cycle[]>([])
-  // const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
+
   const [amountSecondsPassed, setAmountSecondsPassed] = useState(0)
 
   const { cycles, activeCycleId } = cyclesState
@@ -108,37 +107,15 @@ export function CyclesContextProvider({
     }
 
     dispatch({ type: 'ADD', payload: { newCycle } })
-    // setCycles((state) => [...state, newCycle])
-    // setActiveCycleId(id)
     setAmountSecondsPassed(0)
   }
 
   function interruptCurrentCycle() {
     dispatch({ type: 'INTERRUPT', payload: {} })
-    // setCycles((state) =>
-    //   state.map((cycle) => {
-    //     if (cycle.id === activeCycleId) {
-    //       return { ...cycle, interruptedDate: new Date() }
-    //     }
-
-    //     return cycle
-    //   }),
-    // )
-
-    // setActiveCycleId(null)
   }
 
   function markCurrentCycleAsFinished() {
     dispatch({ type: 'FINISH', payload: {} })
-    // setCycles((state) =>
-    //   state.map((cycle) => {
-    //     if (cycle.id === activeCycleId) {
-    //       return { ...cycle, finishedDate: new Date() }
-    //     }
-
-    //     return cycle
-    //   }),
-    // )
   }
 
   function setSecondsPast(amount: number) {
